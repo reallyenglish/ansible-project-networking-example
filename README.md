@@ -93,6 +93,17 @@ Logging in
 
     > vagrant ssh $HOSTNAME
 
+Destroying VMs
+--------------
+
+If you want to start from scratch, run:
+
+    > vagrant destroy
+
+then,
+
+    > vagrant up
+
 References
 ----------
 
