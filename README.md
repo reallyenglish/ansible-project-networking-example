@@ -150,3 +150,8 @@ Create test cases that cover all the tasks. See how to write tests at:
 * https://github.com/ryotarai/infrataster
 
 Make sure tests pass.
+
+    > bundle exec rake spec
+
+    Finished in 8.02 seconds (files took 6.69 seconds to load)
+    6 examples, 0 failures
