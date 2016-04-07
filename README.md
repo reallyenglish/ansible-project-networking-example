@@ -13,7 +13,7 @@ Requirements
 * bundler http://bundler.io/
 
 The Network
------------
+===========
 
     +----------------+
     |                |
@@ -52,6 +52,17 @@ The Network
     |   client_uk    |
     |                |
     +----------------+
+
+Preparing
+=========
+
+    > git clone git@github.com:reallyenglish/ansible-project-networking-example.git
+    > cd ansible-project-networking-example
+
+Installing gems
+---------------
+
+    > bundle install --path vendor/bundle
 
 Running instances
 -----------------
