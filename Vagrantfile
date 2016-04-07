@@ -70,3 +70,5 @@ echo route add 192.168.0.0/16 192.168.102.254 >> /etc/rc.local
 SHELL
   end
 end
+
+# vi: ft=ruby
