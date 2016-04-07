@@ -121,8 +121,8 @@ Tasks
 
 Create your own branch.
 
-    > git branch mybrach
-    > git checkout mybrach
+    > git branch mybranch
+    > git checkout mybranch
 
 Complete the following tasks.
 
