@@ -146,7 +146,7 @@ Task 3
 
 Create test cases that cover all the tasks. See how to write tests at:
 
-* https://github.com/trombik/infrataster-plugin-firewall
+* https://github.com/otahi/infrataster-plugin-firewall
 * https://github.com/ryotarai/infrataster
 
 Make sure tests pass.
