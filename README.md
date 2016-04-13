@@ -189,7 +189,7 @@ Create gre(4) tunnel.
 | parameter name | value |
 |----------------|-------|
 | outer tunnel addresses | 172.16.1.10 (gw1.jp) and 172.16.2.10 (gw1.uk) | 
-| inner addresses | 192.168.255.1/30 (gw1.jp) and 192.168.255.2/30 |
+| inner addresses | 192.168.255.1/30 (gw1.jp) and 192.168.255.2/30 (gw1.uk) |
 | operation mode | IPPROTO\_GRE |
 
 Make sure you can ping 172.16.2.10 on gw1.jp.
