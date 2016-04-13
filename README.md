@@ -162,12 +162,12 @@ Task 4
 Create IPSec VPN (IKE v1) tunnel.
 
 | parameter name | value       |
-|-----------+------------------|
-| encapsulation | main mode, ESP tunnel |
+|----------------|-------------|
+| encapsulation        | main mode, ESP tunnel |
 | src and dest address | (see ifconfig egress) |
-| phase 1 crypt | HMAC SHA1, AES 128 bit |
-| phase 2 crypt | HMAC SHA1, AES 128 bit |
-| preshared key | mypassword |
+| phase 1 crypt        | HMAC SHA1, AES 128 bit |
+| phase 2 crypt        | HMAC SHA1, AES 128 bit |
+| preshared key        | mypassword |
 | src and dest address | 172.16.1.10 and 172.16.2.10 |
 
 Make sure you can ping from gw1.jp to gw2.jp.
@@ -187,7 +187,7 @@ Task 6
 Create gre(4) tunnel.
 
 | parameter name | value |
-|----------------+-------|
+|----------------|-------|
 | outer tunnel addresses | 172.16.1.10 (gw1.jp) and 172.16.2.10 (gw1.uk) | 
 | inner addresses | 192.168.255.1/30 (gw1.jp) and 192.168.255.2/30 |
 | operation mode | IPPROTO\_GRE |
