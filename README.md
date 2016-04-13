@@ -164,7 +164,6 @@ Create IPSec VPN (IKE v1) tunnel.
 | parameter name | value       |
 |----------------|-------------|
 | encapsulation        | main mode, ESP tunnel |
-| src and dest address | (see ifconfig egress) |
 | phase 1 crypt        | HMAC SHA1, AES 128 bit |
 | phase 2 crypt        | HMAC SHA1, AES 128 bit |
 | preshared key        | mypassword |
