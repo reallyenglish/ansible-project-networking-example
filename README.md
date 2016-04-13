@@ -192,6 +192,6 @@ Create gre(4) tunnel.
 | inner addresses | 192.168.255.1/30 (gw1.jp) and 192.168.255.2/30 (gw1.uk) |
 | operation mode | IPPROTO\_GRE |
 
-Make sure you can ping 172.16.2.10 on gw1.jp.
+Make sure you can ping 192.168.255.2 (gw1.uk's inner address) on gw1.jp.
 
 Make sure GRE packets are encrypted by `tcpdump`.
