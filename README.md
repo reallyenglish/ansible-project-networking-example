@@ -194,3 +194,31 @@ Create gre(4) tunnel.
 Make sure you can ping 192.168.255.2 (gw1.uk's inner address) on gw1.jp.
 
 Make sure GRE packets are encrypted by `tcpdump`.
+
+Task 7
+------
+
+Enable and start `ospfd(8)` on gw1.jp. Area 0 should be the subnet of `gre(4)`.
+
+Make sure `ospfd(8)` advertises on `gre(4)`.
+
+Task 8
+------
+
+Configure gw1.uk exactly same except network addresses.
+
+Make sure OSPF adjacency is FULL by `ospfctl(8)`. See http://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/13685-13.html
+
+Make sure `ospfd(8)` on gw1.jp imports 192.168.102.10/24 (the subnet of UK) by `ospfctl show rib detail`.
+
+Task 9
+------
+
+Add the internal interfaces to the zone zero. `ospfd(8)` should not advertise on the internal networks.
+
+Make sure no OSPF packets can be seen on the internal network interfaces by `tcpdump(8)`.
+
+Task 10
+-------
+
+Make sure both client\_jp and client\_uk can `ping(8)` each other. Make sure the packets are encrypted.
