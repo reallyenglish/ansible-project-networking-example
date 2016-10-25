@@ -52,6 +52,18 @@ ifconfig gre0 192.168.255.1 192.168.255.2 netmask 255.255.255.252 link0 up
 ifconfig gre0 tunnel 172.16.1.10 172.16.2.10
 echo 192.168.255.1 192.168.255.2 netmask 255.255.255.252 link0 up >> /etc/hostname.gre0
 echo tunnel 172.16.1.10 172.16.2.10 >> /etc/hostname.gre0
+
+echo router-id 192.168.255.1     > /etc/ospfd.conf
+echo auth-md 1 "myospfpassword" >> /etc/ospfd.conf
+echo auth-type crypt            >> /etc/ospfd.conf
+echo auth-md-keyid 1            >> /etc/ospfd.conf
+echo area 0.0.0.0 {             >> /etc/ospfd.conf
+echo  interface gre0 { }        >> /etc/ospfd.conf
+echo }                          >> /etc/ospfd.conf
+
+chmod 600 /etc/ospfd.conf
+echo ospfd_flags=\"\" >> /etc/rc.conf.local
+ospfd
 SHELL
   end
 
@@ -97,6 +109,18 @@ ifconfig gre0 192.168.255.2 192.168.255.1 netmask 255.255.255.252 link0 up
 ifconfig gre0 tunnel 172.16.2.10 172.16.1.10
 echo 192.168.255.2 192.168.255.1 netmask 255.255.255.252 link0 up >> /etc/hostname.gre0
 echo tunnel 172.16.2.10 172.16.1.10 >> /etc/hostname.gre0
+
+echo router-id 192.168.255.2     > /etc/ospfd.conf
+echo auth-md 1 "myospfpassword" >> /etc/ospfd.conf
+echo auth-type crypt            >> /etc/ospfd.conf
+echo auth-md-keyid 1            >> /etc/ospfd.conf
+echo area 0.0.0.0 {             >> /etc/ospfd.conf
+echo  interface gre0 { }        >> /etc/ospfd.conf
+echo }                          >> /etc/ospfd.conf
+
+chmod 600 /etc/ospfd.conf
+echo ospfd_flags=\"\" >> /etc/rc.conf.local
+ospfd
 SHELL
   end
 
