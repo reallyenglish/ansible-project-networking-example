@@ -6,6 +6,6 @@ describe server(:client_jp) do
   end
 
   describe firewall(server(:gw_uk)) do
-    it { is_expected.not_to be_reachable }
+    it { is_expected.to be_reachable }
   end
 end
