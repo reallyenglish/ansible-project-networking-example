@@ -45,6 +45,13 @@ echo ike esp from 172.16.1.10 to 172.16.2.10 peer 172.16.2.10 main auth hmac-sha
 chmod 600 /etc/ipsec.conf
 ipsecctl -f /etc/ipsec.conf
 echo ipsec=YES >> /etc/rc.conf.local
+sysctl net.inet.gre.allow=1
+echo net.inet.gre.allow=1 >> /etc/sysctl.conf
+ifconfig gre0 create
+ifconfig gre0 192.168.255.1 192.168.255.2 netmask 255.255.255.252 link0 up
+ifconfig gre0 tunnel 172.16.1.10 172.16.2.10
+echo 192.168.255.1 192.168.255.2 netmask 255.255.255.252 link0 up >> /etc/hostname.gre0
+echo tunnel 172.16.1.10 172.16.2.10 >> /etc/hostname.gre0
 SHELL
   end
 
@@ -83,6 +90,13 @@ echo ike esp from 172.16.2.10 to 172.16.1.10 peer 172.16.1.10 main auth hmac-sha
 chmod 600 /etc/ipsec.conf
 ipsecctl -f /etc/ipsec.conf
 echo ipsec=YES >> /etc/rc.conf.local
+sysctl net.inet.gre.allow=1
+echo net.inet.gre.allow=1 >> /etc/sysctl.conf
+ifconfig gre0 create
+ifconfig gre0 192.168.255.2 192.168.255.1 netmask 255.255.255.252 link0 up
+ifconfig gre0 tunnel 172.16.2.10 172.16.1.10
+echo 192.168.255.2 192.168.255.1 netmask 255.255.255.252 link0 up >> /etc/hostname.gre0
+echo tunnel 172.16.2.10 172.16.1.10 >> /etc/hostname.gre0
 SHELL
   end
 
