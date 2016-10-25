@@ -28,10 +28,15 @@ SHELL
     c.vm.network "private_network", ip: "192.168.101.254", virtualbox__intnet: "intranet_japan"
     c.vm.network "private_network", ip: "172.16.1.10", virtualbox__intnet: "japan"
     c.vm.provision "shell", inline: <<-SHELL
+sysctl net.inet.ip.forwarding=1
+echo net.inet.ip.forwarding=1 >> /etc/sysctl.conf
 route add 172.16.0.0/16 172.16.1.254
 route add 192.168.0.0/16 172.16.1.254
 echo route add 172.16.0.0/16 172.16.1.254 >> /etc/rc.local
 echo route add 192.168.0.0/16 172.16.1.254 >> /etc/rc.local
+echo match out on em2 from 192.168.101.0/24 to 172.16.0.0/16 nat-to 172.16.1.10 >> /etc/pf.conf
+echo pass on em2 from 192.168.101.0/24 to 172.16.0.0/16 >> /etc/pf.conf
+pfctl -f /etc/pf.conf
 SHELL
   end
 
@@ -53,10 +58,15 @@ SHELL
     c.vm.network "private_network", ip: "192.168.102.254", virtualbox__intnet: "intranet_uk"
     c.vm.network "private_network", ip: "172.16.2.10", virtualbox__intnet: "uk"
     c.vm.provision "shell", inline: <<-SHELL
+sysctl net.inet.ip.forwarding=1
+echo net.inet.ip.forwarding=1 >> /etc/sysctl.conf
 route add 172.16.0.0/16 172.16.2.254
 route add 192.168.0.0/16 172.16.2.254
 echo route add 172.16.0.0/16 172.16.2.254 >> /etc/rc.local
 echo route add 192.168.0.0/16 172.16.2.254 >> /etc/rc.local
+echo match out on em2 from 192.168.102.0/24 to 172.16.0.0/16 nat-to 172.16.2.10 >> /etc/pf.conf
+echo pass on em2 from 192.168.102.0/24 to 172.16.0.0/16 >> /etc/pf.conf
+pfctl -f /etc/pf.conf
 SHELL
   end
 
