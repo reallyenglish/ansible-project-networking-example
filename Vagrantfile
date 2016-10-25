@@ -37,6 +37,8 @@ echo route add 192.168.0.0/16 172.16.1.254 >> /etc/rc.local
 echo match out on em2 from 192.168.101.0/24 to 172.16.0.0/16 nat-to 172.16.1.10 >> /etc/pf.conf
 echo pass on em2 from 192.168.101.0/24 to 172.16.0.0/16 >> /etc/pf.conf
 pfctl -f /etc/pf.conf
+ifconfig enc0 up
+echo up > /etc/hostname.enc0
 isakmpd -K
 echo 'isakmpd_flags="-K"' >> /etc/rc.conf.local
 echo ike esp from 172.16.1.10 to 172.16.2.10 peer 172.16.2.10 main auth hmac-sha1 enc aes-128 quick auth hmac-sha1 enc aes-128 psk mypassword >> /etc/ipsec.conf
@@ -73,6 +75,8 @@ echo route add 192.168.0.0/16 172.16.2.254 >> /etc/rc.local
 echo match out on em2 from 192.168.102.0/24 to 172.16.0.0/16 nat-to 172.16.2.10 >> /etc/pf.conf
 echo pass on em2 from 192.168.102.0/24 to 172.16.0.0/16 >> /etc/pf.conf
 pfctl -f /etc/pf.conf
+ifconfig enc0 up
+echo up > /etc/hostname.enc0
 isakmpd -K
 echo isakmpd_flags=\"-K\" >> /etc/rc.conf.local
 echo ike esp from 172.16.2.10 to 172.16.1.10 peer 172.16.1.10 main auth hmac-sha1 enc aes-128 quick auth hmac-sha1 enc aes-128 psk mypassword >> /etc/ipsec.conf
