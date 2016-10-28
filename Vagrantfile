@@ -59,6 +59,7 @@ echo auth-type crypt            >> /etc/ospfd.conf
 echo auth-md-keyid 1            >> /etc/ospfd.conf
 echo area 0.0.0.0 {             >> /etc/ospfd.conf
 echo  interface gre0 { }        >> /etc/ospfd.conf
+echo  interface em1 { }         >> /etc/ospfd.conf
 echo }                          >> /etc/ospfd.conf
 
 chmod 600 /etc/ospfd.conf
@@ -116,6 +117,7 @@ echo auth-type crypt            >> /etc/ospfd.conf
 echo auth-md-keyid 1            >> /etc/ospfd.conf
 echo area 0.0.0.0 {             >> /etc/ospfd.conf
 echo  interface gre0 { }        >> /etc/ospfd.conf
+echo  interface em1 { }         >> /etc/ospfd.conf
 echo }                          >> /etc/ospfd.conf
 
 chmod 600 /etc/ospfd.conf
