@@ -8,4 +8,8 @@ describe server(:client_jp) do
   describe firewall(server(:gw_uk)) do
     it { is_expected.to be_reachable }
   end
+
+  describe firewall(server(:client_uk)) do
+    it { is_expected.to be_reachable }
+  end
 end
