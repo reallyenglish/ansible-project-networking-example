@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
     v.memory = 256
     v.cpus = 1
   end
-  config.vm.box = "trombik/ansible-openbsd-5.8-amd64"
+  config.vm.box = "trombik/ansible-openbsd-6.0-amd64"
   config.vm.box_check_update = false
 
   config.vm.define :client_jp do |c|
